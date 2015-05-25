@@ -14,3 +14,14 @@
 Route::get('/', 'front\FrontController@index');
 Route::resource('kanri/post', 'kanri\PostController@index');
 Route::post('tess/ajax',  'front\FrontController@pregunta');
+
+//
+ Route::get ('login',  'Auth\AuthController@getLogin');
+ Route::post('login',  'Auth\AuthController@postLogin');
+ Route::get('register',  'Auth\AuthController@getRegister');
+ Route::post('register',  'Auth\AuthController@postRegister');
+ Route::get('logout',  'Auth\AuthController@getLogout');
+ Route::group(['before' => 'auth'], function()
+{
+    if (!Auth::guest()) { return Redirect::to('/'); };
+});
