@@ -6,6 +6,7 @@ use Auth;
 use Illuminate\Http\Request;
 use Input;
 use Lang;
+use App;
 use Illuminate\Support\Facades\Config;
 
 class FrontController extends Controller {
@@ -22,6 +23,7 @@ class FrontController extends Controller {
     }
 	public function index()
 	{
+		//App::setLocale('vi');
 		print_r(Config::get('app.locale'));
 		echo Lang::get('message.welcome');
 echo 111;

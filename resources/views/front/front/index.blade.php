@@ -3,7 +3,7 @@
 	front page template.
 	<br>
 	Params:
-	<h2>Add Task<?php echo Lang::get('messages.welcome'); ?></h2>
+	<h2>trán : {{ trans('message.welcome') }}</h2>
  <input type="text" name="caja_texto" id="valor1" value="0"/>
 
 
