@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Request;
 use Input;
+use Lang;
+use Illuminate\Support\Facades\Config;
 
 class FrontController extends Controller {
 	protected $layout = 'front.layouts.default';
@@ -13,12 +15,16 @@ class FrontController extends Controller {
 	 *
 	 * @return Response
 	 */
+
 	public function __construct()
     {
           //$this->middleware('auth', ['except' => ['index', 'show']]);
     }
 	public function index()
 	{
+		print_r(Config::get('app.locale'));
+		echo Lang::get('message.welcome');
+echo 111;
 		$arg['name'] = 'test params';
 		return view('front.front.index', ['arg' => $arg]);
 		//$this->layout->content = view('front\front.index', $arg);

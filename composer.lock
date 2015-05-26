@@ -4,8 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "68fa115b9d0f6d0c5db6c42e897d7056",
+    "hash": "f3da7e02e485a48252968c827d623e1f",
     "packages": [
+        {
+            "name": "caouecs/laravel4-lang",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caouecs/Laravel-lang.git",
+                "reference": "a3d6115daa92cc81934beb98a6babcfd89ac6469"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/a3d6115daa92cc81934beb98a6babcfd89ac6469",
+                "reference": "a3d6115daa92cc81934beb98a6babcfd89ac6469",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "caouecs",
+                    "email": "caouecs@caouecs.net"
+                }
+            ],
+            "description": "Languages for Laravel4",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "lpm"
+            ],
+            "time": "2015-03-30 17:56:53"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "1.3.0",
