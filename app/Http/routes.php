@@ -21,7 +21,14 @@ Route::post('tess/ajax',  'front\FrontController@pregunta');
  Route::get('register',  'Auth\AuthController@getRegister');
  Route::post('register',  'Auth\AuthController@postRegister');
  Route::get('logout',  'Auth\AuthController@getLogout');
+ Route::get('user/profile', 'User\UserController@showProfile');
+ #login social
+// Redirect to github to authenticate
+Route::get('github', 'Account\AccountController@github_redirect');
+
+Route::get('account/github', 'Account\AccountController@github');
  Route::group(['before' => 'auth'], function()
 {
-    if (!Auth::guest()) { return Redirect::to('/'); };
+    if (!Auth::guest()) { return Redirect::to('/hh'); };
 });
+

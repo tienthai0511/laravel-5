@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => env('APP_DEBUG'),
+	'debug' => 'true',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -145,7 +145,8 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-
+		#login social
+		'Laravel\Socialite\SocialiteServiceProvider',
 	],
 
 	/*
@@ -195,7 +196,8 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form'      => 'Illuminate\Html\FormFacade',
 		'HTML'      => 'Illuminate\Html\HtmlFacade',
-
+		#login social
+		'Socialize' => 'Laravel\Socialite\Facades\Socialite',
 	],
 
 ];

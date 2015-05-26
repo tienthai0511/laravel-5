@@ -34,4 +34,10 @@ return [
 		'secret' => '',
 	],
 
+	#login social
+	'github' => [
+		'client_id' => 'a312d1f2666eea8fc174',
+		'client_secret' => '6a2001b7786cd02e198e41a8b9194891069f4bc2',
+		'redirect' => 'http://laravel.local/dangkithanhcong',
+	],
 ];

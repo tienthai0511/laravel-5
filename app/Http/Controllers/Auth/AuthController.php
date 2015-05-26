@@ -64,7 +64,7 @@ class AuthController extends Controller {
 		$name = $request->input('email');
 		print_r($name);
 		
-		$user->username = '7';
+		$user->username = '8';
 		$user->password = Hash::make('yourpassword');
 		//$user->save();
 		print_r($user);
@@ -101,13 +101,25 @@ class AuthController extends Controller {
      */
     public function postLogin(LoginRequest $request)
     {
-		
-        if ($this->auth->attempt($request->only('email', 'password')))
+		#login by username or password
+		$field = filter_var($request->input('email'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+		$request->merge([$field => $request->input('email')]);
+		$remember = ($request->get('remember') == 'on') ? true : false;
+		var_dump($remember);
+        if ($this->auth->attempt($request->only($field, 'password'), $remember))
         {
-			$email = Auth::user()->email;
-			$role = Auth::user()->role;
-			print_r($email);
-			print_r($role);
+			echo 111;
+			echo 222;
+			$user = Auth::user();
+			echo "</pre>";
+			print_r($user->id);
+			 return redirect("user/{$user->id}");
+			echo "<pre>";
+		exit;
+			//$email = Auth::user()->email;
+			//$role = Auth::user()->role;
+			//print_r($email);
+			//print_r($role);
             //return redirect('/');
 			exit;
         }
@@ -128,5 +140,6 @@ class AuthController extends Controller {
  
         return redirect('/login');
     }
- 
+  
+
 }
