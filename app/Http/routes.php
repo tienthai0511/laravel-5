@@ -16,11 +16,11 @@ Route::resource('kanri/post', 'kanri\PostController@index');
 Route::post('tess/ajax',  'front\FrontController@pregunta');
 
 //
- Route::get ('login',  'Auth\AuthController@getLogin');
- Route::post('login',  'Auth\AuthController@postLogin');
- Route::get('register',  'Auth\AuthController@getRegister');
- Route::post('register',  'Auth\AuthController@postRegister');
- Route::get('logout',  'Auth\AuthController@getLogout');
+ Route::get ('/auth/login',  'Auth\AuthController@getLogin');
+ Route::post('/auth/login',  'Auth\AuthController@postLogin');
+ Route::get('/auth/register',  'Auth\AuthController@getRegister');
+ Route::post('/auth/register',  'Auth\AuthController@postRegister');
+ Route::get('/auth/logout',  'Auth\AuthController@getLogout');
  Route::get('user/profile', 'User\UserController@showProfile');
  #login social
 // Redirect to github to authenticate
@@ -32,3 +32,34 @@ Route::get('account/github', 'Account\AccountController@github');
     if (!Auth::guest()) { return Redirect::to('/hh'); };
 });
 
+#router username
+Route::get('{username}/boards', 'User\UserController@show')->where('username', '[A-Za-z]+');
+// Admin area
+Route::get('kanri', function () {
+  return redirect('/kanri/post');
+});
+
+/*Route::filter('kanri', function()
+{
+	// Login check (Default)
+    if (Auth::guest()) return Redirect::guest('login');
+
+    if(Auth::user()->role != 'su_admin') {
+        return Redirect::to('/'); // Redirect home page
+    }
+});
+ */
+//Route::when('kanri/*', 'kanri');
+Route::group([
+  'prefix' => 'kanri',
+  'middleware' => 'auth',
+], function () {
+	Route::get ('post',  'kanri\PostController@index');
+	Route::get ('test',  'kanri\PostController@test');
+	//Route::resource('kanri/post', 'kanri\PostController@index');
+  
+});
+//tesst router 
+Route::get('user/profile', [
+    'as' => 'profile', 'uses' => 'UserController@showProfile'
+]);

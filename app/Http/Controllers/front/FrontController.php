@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Input;
 use Lang;
 use App;
+use Session;
+use Log;
 use Illuminate\Support\Facades\Config;
 
 class FrontController extends Controller {
@@ -24,9 +26,24 @@ class FrontController extends Controller {
 	public function index()
 	{
 		//App::setLocale('vi');
-		print_r(Config::get('app.locale'));
-		echo Lang::get('message.welcome');
-echo 111;
+		//print_r(Config::get('app.locale'));
+		//echo Lang::get('message.welcome');
+		
+		//$sestion = Session::get('lang');
+		$all_session = $data = Session::all();
+		var_dump($all_session);
+		Session::regenerate();
+		//	toekn
+		
+		//
+		if (Session::has('lang'))
+		{
+			echo "Lang: " , Session::get('lang');
+		}
+		//log info
+		$user = Auth::user();
+		
+		//Log::info($user->email . 'login');
 		$arg['name'] = 'test params';
 		return view('front.front.index', ['arg' => $arg]);
 		//$this->layout->content = view('front\front.index', $arg);
@@ -106,6 +123,9 @@ public function pregunta(){
 	public function destroy($id)
 	{
 		//
+	}
+	public function signUpGet(){
+		echo 1;
 	}
 
 }

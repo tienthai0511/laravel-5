@@ -32,6 +32,11 @@ class Authenticate {
 	 */
 	public function handle($request, Closure $next)
 	{
+		if (\Auth::guest()) return redirect('login');
+
+		if(\Auth::user()->role != 'su_admin') {
+			return redirect('/'); // Redirect home page
+		}
 		if ($this->auth->guest())
 		{
 			if ($request->ajax())

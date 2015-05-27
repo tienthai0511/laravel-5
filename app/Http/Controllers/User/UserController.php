@@ -9,6 +9,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use Hash;
 use Auth;
+
 use Illuminate\Http\Request;
 
 class UserController extends Controller {
@@ -32,5 +33,8 @@ class UserController extends Controller {
 			'user' => 'demo',
 			'data' => $user,
 		]);
+	}
+	public function show($username) {
+		return "showing boards for $username";
 	}
 }

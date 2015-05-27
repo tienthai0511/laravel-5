@@ -33,6 +33,7 @@ class RedirectIfAuthenticated {
 	 */
 	public function handle($request, Closure $next)
 	{
+		var_dump($this->auth->check());
 		if ($this->auth->check())
 		{
 			return new RedirectResponse(url('/'));

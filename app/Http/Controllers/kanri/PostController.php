@@ -19,6 +19,14 @@ class PostController extends Controller {
 		//
 	}
 
+	public function test()
+	{
+		echo  'tessssssssssss';
+		exit;
+		
+		//
+	}
+	
 	/**
 	 * Show the form for creating a new resource.
 	 *

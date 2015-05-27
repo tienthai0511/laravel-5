@@ -18,6 +18,7 @@ function realizaProceso(valorCaja1, valorCaja2){
 			},
 			success:  function (data) {
 				//console.log(data[]);
+				$('#resultado').html(data['ok']);
 				console.log(data['ok']);
 				console.log(data['save']);
 			}

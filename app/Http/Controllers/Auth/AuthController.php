@@ -10,7 +10,8 @@ use App\Http\Requests\Auth\RegisterRequest;
 use Hash;
 use Auth;
 use Illuminate\Http\Request;
-
+use Session;
+use Route;
 class AuthController extends Controller {
  
 	protected $redirectPath = '/';
@@ -113,7 +114,8 @@ class AuthController extends Controller {
 			$user = Auth::user();
 			echo "</pre>";
 			print_r($user->id);
-			 return redirect("user/{$user->id}");
+			Session::put('lang', $user->lang);
+			 return redirect()->intended('kanri');
 			echo "<pre>";
 		exit;
 			//$email = Auth::user()->email;
@@ -138,7 +140,7 @@ class AuthController extends Controller {
     {
         $this->auth->logout();
  
-        return redirect('/login');
+        return redirect('/auth/login');
     }
   
 
