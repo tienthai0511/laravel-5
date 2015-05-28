@@ -56,6 +56,12 @@ Route::group([
 ], function () {
 	Route::get ('post',  'kanri\PostController@index');
 	Route::get ('test',  'kanri\PostController@test');
+	
+	Route::post ('post/store', [
+		'as'=>'post.store',
+		'uses' =>'kanri\PostController@store'
+	]);
+	
 	//Route::resource('kanri/post', 'kanri\PostController@index');
   
 });
@@ -63,3 +69,4 @@ Route::group([
 Route::get('user/profile', [
     'as' => 'profile', 'uses' => 'UserController@showProfile'
 ]);
+// product store

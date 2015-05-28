@@ -2,17 +2,17 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+use App;
+use Auth;
 use Input;
 use Lang;
-use App;
-use Session;
 use Log;
-use Illuminate\Support\Facades\Config;
+use Session;
 
 class FrontController extends Controller {
-	protected $layout = 'front.layouts.default';
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -34,7 +34,7 @@ class FrontController extends Controller {
 		var_dump($all_session);
 		Session::regenerate();
 		//	toekn
-		
+		print_r(ACTIVE. 'active');
 		//
 		if (Session::has('lang'))
 		{
@@ -50,7 +50,8 @@ class FrontController extends Controller {
 		//return view($this->layout, ['content' => '']);
 		
 	}
-public function pregunta(){
+
+	public function pregunta(){
       
 		$joder = Input::all();
 		$data['ok'] = (Auth::guest()) ? 0 : 1;

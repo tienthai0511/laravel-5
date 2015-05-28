@@ -15,7 +15,10 @@
 	<div class="container">
 	@yield('content')
 	</div> <!-- /container -->
-
+	widget
+	{!! Widget::run('recentNews') !!}
+	{!! Widget::recentNews() !!}
+	@widget('recentNews');
 	 @include('front.include.foot')
 	</body>
 	</html>

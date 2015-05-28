@@ -1,12 +1,11 @@
-<?php namespace App\Http\Controllers\kanri;
+<?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\kanri\PostRequest;
 
 use Illuminate\Http\Request;
 
-class PostController extends Controller {
+class frontTestController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,20 +14,9 @@ class PostController extends Controller {
 	 */
 	public function index()
 	{
-		$arg['name'] = 'test params at kanri page';
-		var_dump((\File::exists(base_path() . '/public/images/_imghqdefault.jpg.jpg')));
-		return view('kanri\post.index', ['arg' => $arg]);
 		//
 	}
 
-	public function test()
-	{
-		echo  'tessssssssssss';
-		exit;
-		
-		//
-	}
-	
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -44,15 +32,8 @@ class PostController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(PostRequest $request)
+	public function store()
 	{
-		 $extension_name = $request->file('image')->getClientOriginalExtension();
-		 $images_name = '_img' . time();//$request->file('image')->getClientOriginalName();
-		 print_r(base_path());
-		$request->file('image')->move(base_path() . '/public/images/', $images_name . '.'. $extension_name );
-	
-		echo 1;
-		exit; 
 		//
 	}
 
@@ -99,6 +80,5 @@ class PostController extends Controller {
 	{
 		//
 	}
-		
 
 }

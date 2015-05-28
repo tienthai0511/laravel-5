@@ -147,6 +147,8 @@ return [
 		'App\Providers\RouteServiceProvider',
 		#login social
 		'Laravel\Socialite\SocialiteServiceProvider',
+		//widgets
+		'Arrilot\Widgets\ServiceProvider',
 	],
 
 	/*
@@ -198,6 +200,9 @@ return [
 		'HTML'      => 'Illuminate\Html\HtmlFacade',
 		#login social
 		'Socialize' => 'Laravel\Socialite\Facades\Socialite',
+		//widgets
+		'Widget'       => 'Arrilot\Widgets\Facade',
+    	'AsyncWidget'  => 'Arrilot\Widgets\AsyncFacade',
 	],
 
 ];

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSessionTable extends Migration {
+class CreateProductsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,11 +11,12 @@ class CreateSessionTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('sessions', function($t)
+		Schema::create('products', function($t)
 		{
 			$t->string('id')->unique();
-			$t->text('payload');
-			$t->integer('last_activity');
+			$t->string('sku');
+			$t->string('name');
+			$t->integer('image');
 		});
 	}
 
@@ -26,7 +27,7 @@ class CreateSessionTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('sessions');
+		Schema::drop('products');
 	}
 
 }
