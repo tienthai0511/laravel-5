@@ -25,6 +25,9 @@ class FrontController extends Controller {
     }
 	public function index()
 	{
+		$client_ip = \Request::getClientIp(true);
+		print_r("Client IP". $client_ip );
+		echo "<br/>";
 		//App::setLocale('vi');
 		//print_r(Config::get('app.locale'));
 		//echo Lang::get('message.welcome');

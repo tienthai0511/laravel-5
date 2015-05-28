@@ -19,7 +19,7 @@
     display: inline-block;
 }
 </style>
-
+divcontainerabc>ul>li.item
 <div id="imagePreview"></div>
 <input id="uploadFile" type="file" name="image" class="img" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
@@ -63,7 +63,6 @@
     {!! Form::label('Product SKU') !!}
     {!! Form::text('sku', null, array('placeholder'=>'1234')) !!}
 </div>
-
 <div class="form-group">
     {!! Form::label('Product Image') !!}
     {!! Form::file('image', null) !!}
